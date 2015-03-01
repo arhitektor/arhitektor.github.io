@@ -1,0 +1,184 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Торговая сеть магазинов &laquo;СтройМАРКЕТ&raquo;</title>
+	<meta charset="utf-8" />
+
+	<link rel="icon" href="http://www.stroy-market.by/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="http://www.stroy-market.by/favicon.ico" type="image/x-icon">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+
+    <style>
+
+        body { margin:0; padding:0; font-family: arial; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+
+	#logo {
+	position:absolute;
+	top: 50px;
+	left: 50px;
+	}
+
+	#search-form {
+	position:absolute;
+	top: 50px;
+	right: 50px;
+	}
+
+    </style>
+</head>
+<body>
+	<div id="map"></div>
+
+	<script>
+		var map = L.map('map').setView([52.7866725824, 27.50478744], 13);
+
+		L.control.scale({imperial: false}).addTo(map);
+
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> | <a href="http://www.stroy-market.by/">СтройМАРКЕТ</a>'
+		}).addTo(map);
+
+		var MarketIcon = L.Icon.extend({
+			options: {
+				iconSize:     [101, 73],
+				iconAnchor:   [16, 73],
+				popupAnchor:  [37, -43]
+			}
+		});
+
+		var stroiMarkIcon = new MarketIcon({iconUrl: 'http://www.stroy-market.by/js/images/stroiMark.png'}),
+			radugDomIcon = new MarketIcon({iconUrl: 'http://www.stroy-market.by/js/images/radugdom.png'});
+
+		L.marker([52.784246, 27.515506], {icon: stroiMarkIcon}).bindPopup('<strong>Магазин &laquo;СтройМАРКЕТ&raquo;</strong><br />'
+	+ '<em>ул. К. Заслонова, 59<br />'
+	+ 'Режим работы: 8.30 &ndash; 20.30<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: дисконтная карта -5%,<br />'
+	+ 'акции<br />'
+	+ '23-53-79</em>').addTo(map);
+
+		L.marker([52.785985, 27.547917], {icon: stroiMarkIcon}).bindPopup('<strong>Магазин &laquo;Стройлюкс&raquo; </strong><br />'
+	+ '<em>ул. Козлова, 21А<br />'
+	+ 'Режим работы: 9.00 &ndash; 20.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: до 15%<br />'
+	+ '22-22-30</em>').addTo(map);
+
+		L.marker([52.774472, 27.454491], {icon: stroiMarkIcon}).bindPopup('<strong>Магазин &laquo;СтройМАРКЕТ&raquo;</strong><br />'
+	+ '<em>д. Дубеи, р-н Племстанции<br />'
+	+ 'Режим работы: пн-пт. 9.00 &ndash; 19.00,<br />'
+	+ 'сб. 9.00 &ndash; 17.00, вс. 9.00</em><em> &ndash; </em><em>15.00<br />'
+	+ '(без обеда)<br />'
+	+ 'Скидка: дисконтная карта -5%<br />'
+	+ '20-97-58</em>').addTo(map);
+
+		L.marker([52.77808, 27.45462], {icon: stroiMarkIcon}).bindPopup('<strong>Cклад ООО &laquo;Солстройкомплект&raquo;</strong><br />'
+	+ '<em>д. Дубеи, р-н Племстанции<br />'
+	+ 'Режим работы: 8.00 &ndash; 17.00<br />'
+	+ '(без обеда, выходной: суббота, воскресенье)<br />'
+	+ 'Скидка: наценка 0%<br />'
+	+ '20-97-57</em>').addTo(map);
+
+		L.marker([52.784395, 27.502508], {icon: radugDomIcon}).bindPopup('<strong>Магазинн &laquo;Радуга-Дом&raquo;</strong><br />'
+	+ '<em>ул. Молодежная, 23А<br />'
+	+ 'Режим работы: 9.00 &ndash; 21.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: понедельник -5%<br />'
+	+ '26-32-77</em>').addTo(map);
+
+		L.marker([52.788824, 27.545965], {icon: radugDomIcon}).bindPopup('<strong>Магазин &laquo;Радуга-Дом&raquo;-2</strong><br />'
+	+ '<em>ул. Л. Комсомола, 17<br />'
+	+ 'Режим работы: 9.00 &ndash; 21.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: суббота -5%<br />'
+	+ '22-06-16</em>').addTo(map);
+
+		L.marker([52.785852, 27.547488], {icon: radugDomIcon}).bindPopup('<strong>Магазин &laquo;Радуга-Дом&raquo;-3</strong><br />'
+	+ '<em>ул. Козлова, 21Б<br />'
+	+ 'Режим работы: 9.00 &ndash; 21.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: воскресенье -5%<br />'
+	+ '22-41-33</em>').addTo(map);
+
+		L.marker([52.784233, 27.530011], {icon: radugDomIcon}).bindPopup('<strong>Магазин &laquo;Радуга-Дом&raquo;-4</strong><br />'
+	+ '<em>ул. Козлова, 58В<br />'
+	+ 'Режим работы: 9.00 &ndash; 21.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: пятница -5%<br />'
+	+ '25-42-52</em>').addTo(map);
+
+		L.marker([52.779878, 27.540697], {icon: radugDomIcon}).bindPopup('<strong>Магазин &laquo;Радуга-Дом&raquo;-5</strong><br />'
+	+ '<em>ул. Парковая, 17А<br />'
+	+ 'Режим работы: 9.00 &ndash; 21.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: четверг -5%<br />'
+	+ '23-80-23</em>').addTo(map);
+
+		L.marker([52.788444, 27.521642], {icon: radugDomIcon}).bindPopup('<strong>Магазин &laquo;Радуга-Дом&raquo;-6</strong><br />'
+	+ '<em>пр-т Мира, 22А<br />'
+	+ 'Режим работы: 9.00 &ndash; 21.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: вторник -5%<br />'
+	+ '25-40-00</em>').addTo(map);
+
+		L.marker([52.792917, 27.53264], {icon: radugDomIcon}).bindPopup('<strong>Магазин &laquo;Радуга-Дом&raquo;-7</strong><br />'
+	+ '<em>ул. Ленина, 2Б<br />'
+	+ 'Режим работы: 9.00 &ndash; 21.00<br />'
+	+ '(без обеда, без выходных)<br />'
+	+ 'Скидка: среда -5%<br />'
+	+ '24-44-11</em>').addTo(map);
+
+	</script>
+
+	<form id="search-form" action="http://www.stroy-market.by/search.php" method="GET">
+		<input id="search-input" type="text" name="query" value="" class="disable" autocomplete="off" />
+		<input type="submit" value="Найти в каталоге" />
+	</form>
+
+	<div id="logo">
+		<a href="http://www.stroy-market.by/" target="_blank"><img src="http://www.stroy-market.by/img/stroimarketprint.png" width="150" alt="" border="0" /></a>
+	</div>
+
+	<div style="position:absolute; bottom: 30px; left: 50px">
+		<!-- Yandex.Metrika informer -->
+<a href="https://metrika.yandex.ru/stat/?id=25078811&amp;from=informer"
+target="_blank" rel="nofollow"><img src="//bs.yandex.ru/informer/25078811/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"
+style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" onclick="try{Ya.Metrika.informer({i:this,id:25078811,lang:'ru'});return false}catch(e){}"/></a>
+<!-- /Yandex.Metrika informer -->
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter25078811 = new Ya.Metrika({id:25078811,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true,
+                    ut:"noindex"});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/25078811?ut=noindex" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+	</div>
+
+</body>
+</html>
